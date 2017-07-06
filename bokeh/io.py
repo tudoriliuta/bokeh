@@ -576,12 +576,15 @@ def _wait_until_render_complete(driver):
       window._bokeh_render_complete = true;
     }
 
-    var doc = window.Bokeh.documents[0];
+    var documents = window.Bokeh.documents;
+    if (documents.length > 0) {
+      var doc = documents[0];
 
-    if (doc.is_idle)
-      done();
-    else
-      doc.idle.connect(done);
+      if (doc.is_idle)
+        done();
+      else
+        doc.idle.connect(done);
+    }
     """
     driver.execute_script(script)
 
