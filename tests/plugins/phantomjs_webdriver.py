@@ -1,9 +1,13 @@
 from __future__ import absolute_import, print_function
 
+import logging
 import os
 
 import pytest
 from selenium import webdriver as wd
+from selenium.webdriver.remote.remote_connection import LOGGER
+
+LOGGER.setLevel(logging.WARNING)
 
 from .utils import write
 
