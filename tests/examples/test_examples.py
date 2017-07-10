@@ -91,8 +91,8 @@ def test_server_examples(server_example, example, webdriver, bokeh_server, repor
 
     session.close()
 
-    if not os.path.isdir(example.img_dir):
-        os.mkdir(example.img_dir)
+    if not os.path.isdir(example.imgs_dir):
+        os.mkdir(example.imgs_dir)
 
     with open(example.img_path, 'wb') as f:
         f.write(png)
